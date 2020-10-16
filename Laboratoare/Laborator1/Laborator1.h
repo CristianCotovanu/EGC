@@ -2,8 +2,23 @@
 
 #include <Component/SimpleScene.h>
 
+#define EXTRA_OBJECTS	3
+
 class Laborator1 : public SimpleScene
 {
+	private:
+		float redFactor;
+		float greenFactor;
+		float blueFactor;
+		bool colorReset = true;
+
+		float objX;
+		float objY;
+		float objZ;
+		float objScale;
+		std::string objName;
+		int objIdx;
+
 	public:
 		Laborator1();
 		~Laborator1();
@@ -23,4 +38,7 @@ class Laborator1 : public SimpleScene
 		void OnMouseBtnRelease(int mouseX, int mouseY, int button, int mods) override;
 		void OnMouseScroll(int mouseX, int mouseY, int offsetX, int offsetY) override;
 		void OnWindowResize(int width, int height) override;
+
+		void UpdateClearColour();
+		void UpdateRenderedObject();
 };
