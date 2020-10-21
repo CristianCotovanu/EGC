@@ -27,6 +27,8 @@ class Laborator2 : public SimpleScene
 		void OnMouseScroll(int mouseX, int mouseY, int offsetX, int offsetY) override;
 		void OnWindowResize(int width, int height) override;
 
+		void UpdateCullPerspective();
+
 	protected:
 		GLenum cullFace;
 		GLenum polygonMode;
