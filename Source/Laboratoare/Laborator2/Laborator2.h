@@ -3,6 +3,12 @@
 #include <Component/SimpleScene.h>
 #include <Core/Engine.h>
 
+#define CIRCLE_RADIUS	 1.5
+#define LINES_COUNT		 25
+#define DEGREES_360		 360
+#define DEGREES_180		 180
+#define PI				 3.14159265358979323846
+
 class Laborator2 : public SimpleScene
 {
 	public:

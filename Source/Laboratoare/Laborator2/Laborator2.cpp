@@ -75,10 +75,10 @@ void Laborator2::Init()
 	{
 		vector<VertexFormat> vertices
 		{
-			VertexFormat(glm::vec3(1, 3.5f, -2), glm::vec3(0, 0, 1)),
-			VertexFormat(glm::vec3(0, 1, 1), glm::vec3(0, 0, 1)),
-			VertexFormat(glm::vec3(1.5, 1,  -0.5), glm::vec3(1, 0, 0)),
-			VertexFormat(glm::vec3(3, 0,  0.5), glm::vec3(1, 0, 0)),
+			VertexFormat(glm::vec3(1, 3.5, -2), glm::vec3(0, 0, 1)),		// 0 - top vertex
+			VertexFormat(glm::vec3(0, 1, 1), glm::vec3(0, 0, 1)),			// 1
+			VertexFormat(glm::vec3(1.5, 1,  -0.5), glm::vec3(1, 0, 0)),		// 2
+			VertexFormat(glm::vec3(3, 0,  0.5), glm::vec3(1, 0, 0)),		// 3
 		};
 
 		vector<GLushort> indices =
@@ -116,14 +116,12 @@ void Laborator2::Init()
 		vector<VertexFormat> circleVertices;
 		vector<GLushort> circleIndices;
 
-		int NUM_TRIANGLES = 20;
-		double PI = 3.1415926535897932384626433832795;
-
-		for (int a = 0; a < 360; a += 360 / NUM_TRIANGLES)
+		int line_id = 0;
+		for (int degree = 0; degree < DEGREES_360; degree += DEGREES_360 / LINES_COUNT)
 		{
-			double heading = a * PI / 180;
-			int radius = 1;
-			circleVertices.push_back(VertexFormat(glm::vec3(cos(heading) * radius, sin(heading) * radius, 0)));
+			double radians = degree * PI / DEGREES_180;
+			circleVertices.push_back(VertexFormat(glm::vec3(cos(radians) * CIRCLE_RADIUS, sin(radians) * CIRCLE_RADIUS, 0)));
+			circleIndices.push_back(line_id++);
 		}
 
 		// Create a new mesh from buffer data
@@ -226,7 +224,7 @@ void Laborator2::Update(float deltaTimeSeconds)
 
 	RenderMesh(meshes["square"], shaders["VertexColor"], glm::vec3(-3, 1, -1.5f), glm::vec3(0.5f));
 
-	RenderMesh(meshes["circle"], shaders["VertexColor"], glm::vec3(2, 2, 0), glm::vec3(0.25f));
+	RenderMesh(meshes["circle"], shaders["VertexColor"], glm::vec3(1, 2, 0), glm::vec3(0.25f));
 
 	// Disable face culling
 	glDisable(GL_CULL_FACE);
