@@ -4,6 +4,8 @@
 #include <string>
 #include <Core/Engine.h>
 
+#define ZOOM_FACTOR		3
+
 class Laborator3_Vis2D : public SimpleScene
 {
 	public:
