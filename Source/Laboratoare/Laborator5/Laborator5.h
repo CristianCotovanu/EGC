@@ -2,6 +2,9 @@
 #include <Component/SimpleScene.h>
 #include "LabCamera.h"
 
+#define FAR_DISTANCE		(200.f)
+#define NEAR_DISTANCE		(.01f)
+
 class Laborator5 : public SimpleScene
 {
 	public:
@@ -30,4 +33,10 @@ class Laborator5 : public SimpleScene
 		Laborator::Camera *camera;
 		glm::mat4 projectionMatrix;
 		bool renderCameraTarget;
+		bool isPerspectiveProjection;
+		float fov;
+		float bottom;
+		float top;
+		float left;
+		float right;
 };

@@ -1,6 +1,11 @@
 #pragma once
 #include <Component/SimpleScene.h>
 
+#define JUMPING_STEP			4
+#define PLANET_SIZE				2
+#define EARTH_TO_SUN_DIST		3.5
+#define MOON_TO_EARTH_DIST		2
+
 class Laborator4 : public SimpleScene
 {
 	public:
@@ -29,4 +34,13 @@ class Laborator4 : public SimpleScene
 		float scaleX, scaleY, scaleZ;
 		float angularStepOX, angularStepOY, angularStepOZ;
 		GLenum polygonMode;
+
+		float angularStepJumpingCube;
+		float translateXJumpingCube;
+
+		float translateXSun, translateYSun, translateZSun;
+
+		float moonX, moonY, moonZ;
+		float earthX, earthY, earthZ;
+		float angularStepMoon, angularStepEarth, angularStepSun;
 };
