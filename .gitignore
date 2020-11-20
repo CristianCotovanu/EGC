@@ -11,6 +11,8 @@
 !/Visual Studio/*.vcxproj.filters
 !/Visual Studio/scripts/
 
+/Curs
+
 # Application
 
 !/libs
